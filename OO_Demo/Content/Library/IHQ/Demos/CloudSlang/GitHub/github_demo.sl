@@ -2,23 +2,34 @@ namespace: IHQ.Demos.CloudSlang.GitHub
 flow:
   name: github_demo
   workflow:
-    - Do_Nothing:
-        do_external:
-          ddd79f22-8b1e-4605-88d5-d912bb2da2b9: []
+    - do_nothing:
+        do:
+          io.cloudslang.base.utils.do_nothing: []
         navigate:
-          - success: SUCCESS
+          - SUCCESS: do_nothing_1
+          - FAILURE: on_failure
+    - do_nothing_1:
+        do:
+          io.cloudslang.base.utils.do_nothing: []
+        navigate:
+          - SUCCESS: SUCCESS
+          - FAILURE: on_failure
   results:
     - SUCCESS
+    - FAILURE
 extensions:
   graph:
     steps:
-      Do_Nothing:
-        x: 159.60000610351562
-        'y': 103
+      do_nothing:
+        x: 171.60000610351562
+        'y': 122.60000610351562
+      do_nothing_1:
+        x: 313.6000061035156
+        'y': 247.60000610351562
         navigate:
-          7c0555fe-de6d-9635-c83a-299b2426e1ee:
+          69a87b46-c546-6912-67d4-309d7f5cd2bb:
             targetId: 55636dfb-5aeb-ea27-3678-2c4c966fcea8
-            port: success
+            port: SUCCESS
     results:
       SUCCESS:
         55636dfb-5aeb-ea27-3678-2c4c966fcea8:
