@@ -67,7 +67,7 @@ extensions:
   graph:
     steps:
       get_disk_space_before:
-        x: 99
+        x: 98
         'y': 250
       cleanUp_Temp_Data:
         x: 400
